@@ -1,0 +1,33 @@
+{
+  "name": "atxbro",
+  "version": "1.0.0",
+  "description": "ATXBRO - Austin Experience Platform for visitors and locals",
+  "main": "src/app.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "python3 -m http.server 8000 --directory src",
+    "dev": "python3 -m http.server 8000 --directory src",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"Build process not implemented yet\"",
+    "lint": "echo \"Linting not implemented yet\""
+  },
+  "keywords": [
+    "austin",
+    "texas",
+    "travel",
+    "guide",
+    "veterans",
+    "pets",
+    "news",
+    "local"
+  ],
+  "author": "ATXBRO",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "."
+  }
+}

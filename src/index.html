@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="ATXBRO - Keep Austin Weird Mobile Experience">
+    <title>ATXBRO - Keep Austin Weird</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="status-bar">
+        <div class="location-indicator">
+            <span class="location-dot"></span>
+            <span id="currentLocation">Discovering Austin...</span>
+        </div>
+        <div class="weird-meter">
+            <span>Weird Level: </span>
+            <div class="weird-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container" id="cardContainer">
+        <!-- Welcome Card -->
+        <div class="card welcome">
+            <div class="card-header">
+                <h1 class="card-title keep-austin-weird">Welcome to Austin</h1>
+                <p class="card-subtitle">Keep Austin Weird, Y'all</p>
+            </div>
+            <div class="card-content">
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin: 0.5rem 0;">🎵 250+ Live Venues</div>
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin: 0.5rem 0;">🌮 300+ Food Trucks</div>
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin: 0.5rem 0;">🦇 1.5M Bats</div>
+            </div>
+        </div>
+
+        <!-- VetNav Card -->
+        <div class="card vetnav">
+            <div class="card-header">
+                <h1 class="card-title">VetNav</h1>
+                <p class="card-subtitle">Navigate Your Benefits, Texas-Style</p>
+            </div>
+            <div class="card-content">
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin: 0.5rem 0;">🏥 Austin VA Medical Center</div>
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin: 0.5rem 0;">🎓 GI Bill Benefits</div>
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin: 0.5rem 0;">🏠 Housing Assistance</div>
+            </div>
+        </div>
+
+        <!-- PetFinder Card -->
+        <div class="card petfinder">
+            <div class="card-header">
+                <h1 class="card-title">PetFinder</h1>
+                <p class="card-subtitle">Find Your Austin Companion</p>
+            </div>
+            <div class="card-content">
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin: 0.5rem 0;">🐕 Dogs Available</div>
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin: 0.5rem 0;">🐱 Cats Looking for Homes</div>
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin: 0.5rem 0;">📍 Nearby Shelters</div>
+            </div>
+        </div>
+
+        <!-- News Card -->
+        <div class="card news">
+            <div class="card-header">
+                <h1 class="card-title">Austin News</h1>
+                <p class="card-subtitle">Stay Weird, Stay Informed</p>
+            </div>
+            <div class="card-content">
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin: 0.5rem 0;">🎪 Events & Festivals</div>
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin: 0.5rem 0;">🚗 Traffic & Transit</div>
+            </div>
+        </div>
+
+        <!-- Facts Card -->
+        <div class="card facts">
+            <div class="card-header">
+                <h1 class="card-title">Austin Facts</h1>
+                <p class="card-subtitle">Weird & Wonderful Knowledge</p>
+            </div>
+            <div class="card-content">
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin: 0.5rem 0;">🤠 History</div>
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin: 0.5rem 0;">🎵 Music Scene</div>
+            </div>
+        </div>
+
+        <!-- Hire Me Card -->
+        <div class="card hire">
+            <div class="card-header">
+                <h1 class="card-title">Hire Me</h1>
+                <p class="card-subtitle">Professional Austin Services</p>
+            </div>
+            <div class="card-content">
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin: 0.5rem 0;">🚗 Private Driver</div>
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin: 0.5rem 0;">🤖 AI Development</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="progress-dots" id="progressDots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <div class="gesture-hints" id="gestureHints">
+        <div class="hint horizontal">← swipe → explore modules</div>
+        <div class="hint vertical">↑ swipe ↓ dive deeper</div>
+    </div>
+
+    <div class="easter-egg-container" id="easterEggs"></div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

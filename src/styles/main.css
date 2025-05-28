@@ -1,0 +1,254 @@
+/* ATXBRO Card-Based Mobile Experience */
+:root {
+  --austin-blue: #4A90A4;
+  --austin-green: #7BA05B;
+  --austin-sunset: #E8A87C;
+  --austin-weird-purple: #8B5A96;
+  --austin-hot-pink: #FF6B9D;
+  --austin-neon-green: #39FF14;
+  --austin-bbq-red: #C44536;
+  --austin-limestone: #F5F3F0;
+  --austin-deep-blue: #1B365D;
+  
+  --gradient-primary: linear-gradient(135deg, var(--austin-blue), var(--austin-green));
+  --gradient-weird: linear-gradient(45deg, var(--austin-weird-purple), var(--austin-hot-pink));
+  --gradient-sunset: linear-gradient(180deg, var(--austin-sunset), var(--austin-bbq-red));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--austin-limestone);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+}
+
+.status-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(74, 144, 164, 0.2);
+}
+
+.location-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--austin-deep-blue);
+}
+
+.location-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--austin-neon-green);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+.weird-meter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--austin-weird-purple);
+}
+
+.weird-dots {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.weird-dots .dot {
+  width: 6px;
+  height: 6px;
+  background: rgba(139, 90, 150, 0.3);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.weird-dots .dot.active {
+  background: var(--austin-weird-purple);
+  transform: scale(1.3);
+}
+
+/* FIXED: Card container with proper overflow and width */
+.card-container {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 600vw; /* 6 cards × 100vw each */
+  height: calc(100vh - 120px);
+  display: flex;
+  overflow: hidden; /* FIXED: Hide overflow */
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* FIXED: Each card takes exactly 100vw */
+.card {
+  width: 100vw; /* FIXED: Exact viewport width */
+  height: 100%;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex-shrink: 0; /* FIXED: Prevent shrinking */
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.card.welcome {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+.card.vetnav {
+  background: linear-gradient(135deg, var(--austin-bbq-red), var(--austin-deep-blue));
+  color: white;
+}
+
+.card.petfinder {
+  background: linear-gradient(135deg, var(--austin-green), var(--austin-sunset));
+  color: white;
+}
+
+.card.news {
+  background: var(--gradient-weird);
+  color: white;
+}
+
+.card.facts {
+  background: var(--gradient-sunset);
+  color: white;
+}
+
+.card.hire {
+  background: linear-gradient(135deg, var(--austin-deep-blue), var(--austin-weird-purple));
+  color: white;
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.card-title {
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.card-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.progress-dots {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  z-index: 1000;
+}
+
+.progress-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.progress-dots .dot.active {
+  background: var(--austin-blue);
+  transform: scale(1.3);
+}
+
+.gesture-hints {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  opacity: 0.7;
+  animation: fadeInOut 4s infinite;
+  text-align: center;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: var(--austin-deep-blue);
+  margin: 0.25rem 0;
+}
+
+@keyframes weirdBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  10% { transform: translateY(-5px) rotate(-1deg); }
+  20% { transform: translateY(0) rotate(1deg); }
+  30% { transform: translateY(-3px) rotate(-0.5deg); }
+  40% { transform: translateY(0) rotate(0.5deg); }
+  50% { transform: translateY(-2px) rotate(0deg); }
+}
+
+.keep-austin-weird {
+  animation: weirdBounce 6s ease-in-out infinite;
+}
+
+.easter-egg {
+  position: fixed;
+  font-size: 2rem;
+  animation: easterEggFloat 3s ease-out forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes easterEggFloat {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) rotate(360deg);
+  }
+}
