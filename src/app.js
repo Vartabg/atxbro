@@ -8,7 +8,7 @@ class ATXBROApp {
     this.weirdLevel = 3;
     this.easterEggCount = 0;
     this.currentNeighborhood = null;
-    
+
     this.austinNeighborhoods = {
       downtown: {
         name: "Downtown",
@@ -91,11 +91,37 @@ class ATXBROApp {
     this.setupSwipeHandlers();
     this.updateProgressDots();
     this.showGestureHints();
-    
+    this.setupVetNavCollapsibles(); // <-- Added call
+
     // Make visitNeighborhood globally accessible
     window.visitNeighborhood = (neighborhoodKey) => {
       this.visitNeighborhood(neighborhoodKey);
     };
+  }
+
+  // Method to set up VetNav collapsible sections
+  setupVetNavCollapsibles() {
+    const triggers = document.querySelectorAll('.vetnav-collapsible-trigger');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        // We use getElementById because aria-controls should have the ID of the content
+        const content = document.getElementById(trigger.getAttribute('aria-controls'));
+        const icon = trigger.querySelector('.vetnav-toggle-icon');
+        // Check the current state before toggling
+        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+        if (isExpanded) {
+          content.style.display = 'none';
+          trigger.setAttribute('aria-expanded', 'false');
+          if (icon) icon.textContent = '▼'; // Down arrow for collapsed
+        } else {
+          content.style.display = 'block'; // Or 'grid', 'flex' if content needs specific display
+          trigger.setAttribute('aria-expanded', 'true');
+          if (icon) icon.textContent = '▲'; // Up arrow for expanded
+        }
+      });
+    });
   }
 
   visitNeighborhood(neighborhoodKey) {
@@ -157,24 +183,24 @@ class ATXBROApp {
       text-align: center;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     `;
-    
+
     discovery.innerHTML = `
-      <div>📍 Welcome to ${neighborhood.name}</div>
-      <div style="font-size: 0.9rem; opacity: 0.9;">${neighborhood.vibe}</div>
-    `;
+      <div>📍 Welcome to <span class="math-inline">\{neighborhood\.name\}</div\>
+<div style="font-size: 0.9rem; opacity: 0.9;">{neighborhood.vibe}</div>
+`;
 
     // Add animation if not exists
     if (!document.getElementById('location-animations')) {
       const style = document.createElement('style');
       style.id = 'location-animations';
-      style.textContent = `
+      style.textContent = \`
         @keyframes slideInOut {
           0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
           20% { opacity: 1; transform: translateX(-50%) translateY(0); }
           80% { opacity: 1; transform: translateX(-50%) translateY(0); }
           100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
         }
-      `;
+      \`;
       document.head.appendChild(style);
     }
     
@@ -200,7 +226,7 @@ class ATXBROApp {
       
       const currentTranslate = -this.currentCard * 100;
       const dragTranslate = (diffX / window.innerWidth) * 100;
-      this.cardContainer.style.transform = `translateX(${currentTranslate + dragTranslate}vw)`;
+      this.cardContainer.style.transform = \`translateX(\${currentTranslate + dragTranslate}vw)\`;
     });
 
     this.cardContainer.addEventListener('touchend', (e) => {
@@ -250,16 +276,16 @@ class ATXBROApp {
     const eggElement = document.createElement('div');
     eggElement.className = 'easter-egg';
     eggElement.textContent = emoji;
-    eggElement.style.cssText = `
+    eggElement.style.cssText = \`
       position: fixed;
       font-size: 2rem;
       animation: easterEggFloat 3s ease-out forwards;
       pointer-events: none;
       z-index: 9999;
-      left: ${Math.random() * 80 + 10}%;
-      top: ${Math.random() * 60 + 20}%;
-    `;
-    
+      left: \<span class="math-inline">\{Math\.random\(\) \* 80 \+ 10\}%;
+top: \{Math.random() * 60 + 20}%;
+`;
+
     document.getElementById('easterEggs').appendChild(eggElement);
     setTimeout(() => eggElement.remove(), 3000);
   }
@@ -280,7 +306,7 @@ class ATXBROApp {
 
   updateCardPosition() {
     const translateX = -this.currentCard * 100;
-    this.cardContainer.style.transform = `translateX(${translateX}vw)`;
+    this.cardContainer.style.transform = \`translateX(\${translateX}vw)\`;
   }
 
   updateProgressDots() {

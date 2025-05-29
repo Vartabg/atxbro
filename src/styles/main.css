@@ -449,3 +449,98 @@ body {
   font-weight: 700;
   color: white; /* Make "Myth:" and "Fact:" stand out */
 }
+
+/* VetNav Collapsible Section Styles */
+.vetnav-collapsible {
+  margin-bottom: 0.5rem; /* Space between collapsible items */
+}
+
+.vetnav-collapsible-trigger.austin-stat {
+  width: 100%; /* Make button full width of its container */
+  cursor: pointer;
+  display: flex; /* To align icon properly */
+  align-items: center;
+  justify-content: space-between; /* Pushes icon to the right */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Ensure border is consistent */
+  background: rgba(255, 255, 255, 0.2); /* Default from austin-stat */
+  color: white; /* Default from austin-stat */
+  padding: 0.75rem 1rem; /* Default from vetnav-link */
+  border-radius: 15px; /* Default from austin-stat */
+}
+
+.vetnav-collapsible-trigger:hover {
+  background: rgba(255, 255, 255, 0.25); /* Slight hover effect */
+}
+
+.vetnav-collapsible-trigger .vetnav-text-group { /* Optional: if you want to group emoji, text, subtext */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.vetnav-toggle-icon {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-left: 0.75rem; /* Space icon from text */
+  transition: transform 0.2s ease-in-out;
+}
+
+.vetnav-collapsible-trigger[aria-expanded="true"] .vetnav-toggle-icon {
+  /* transform: rotate(180deg);  Alternative for icon change */
+}
+
+.vetnav-collapsible-content {
+  background: rgba(0, 0, 0, 0.2); /* Slightly different background for content */
+  padding: 1rem;
+  margin-top: -10px; /* Overlap slightly with rounded corners of button */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: none; /* Avoid double border with button */
+  color: rgba(255, 255, 255, 0.9);
+  overflow: hidden; /* Ensure content respects padding */
+}
+
+.vetnav-collapsible-content h4.vetnav-content-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.vetnav-collapsible-content ul {
+  list-style-type: disc; /* Or 'circle' or custom */
+  list-style-position: outside;
+  padding-left: 1.2rem; /* Indent list items */
+  margin: 0 0 1rem 0;
+}
+
+.vetnav-collapsible-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.vetnav-collapsible-content li strong {
+    font-weight: 600;
+    color: white;
+}
+
+.vetnav-collapsible-content p.vetnav-official-link {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.vetnav-collapsible-content p.vetnav-official-link a {
+  color: var(--austin-neon-green); /* Use a vibrant theme color for the link */
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.vetnav-collapsible-content p.vetnav-official-link a:hover {
+  color: var(--austin-hot-pink);
+}

@@ -54,31 +54,77 @@
                 <p class="card-subtitle">Clear paths to the support you've earned.</p>
             </div>
             <div class="card-content">
-                <a href="https://www.va.gov/health-care/" target="_blank" class="austin-stat vetnav-link">
-                    <span class="vetnav-emoji">🏥</span>
-                    <span class="vetnav-text">VA Health Care</span>
-                    <span class="vetnav-subtext">(Incl. PACT Act Info)</span>
-                </a>
-                <a href="https://www.va.gov/disability/" target="_blank" class="austin-stat vetnav-link">
-                    <span class="vetnav-emoji">📝</span>
-                    <span class="vetnav-text">Disability Compensation</span>
-                    <span class="vetnav-subtext">(Service-Connected Conditions)</span>
-                </a>
-                <a href="https://www.va.gov/pension/" target="_blank" class="austin-stat vetnav-link">
-                    <span class="vetnav-emoji">💰</span>
-                    <span class="vetnav-text">VA Pension Program</span>
-                    <span class="vetnav-subtext">(Wartime Vets, Financial Need)</span>
-                </a>
-                <a href="https://www.va.gov/education/" target="_blank" class="austin-stat vetnav-link">
-                    <span class="vetnav-emoji">🎓</span>
-                    <span class="vetnav-text">Education & Training</span>
-                    <span class="vetnav-subtext">(e.g., GI Bill)</span>
-                </a>
-                <a href="https://www.va.gov/housing-assistance/" target="_blank" class="austin-stat vetnav-link">
-                    <span class="vetnav-emoji">🏡</span>
-                    <span class="vetnav-text">Housing Assistance</span>
-                    <span class="vetnav-subtext">(VA Home Loans, Grants)</span>
-                </a>
+                <div class="vetnav-collapsible">
+                    <button type="button" class="austin-stat vetnav-link vetnav-collapsible-trigger" aria-expanded="false" aria-controls="vetnav-health-care-content">
+                        <span class="vetnav-emoji">🏥</span>
+                        <span class="vetnav-text">VA Health Care</span>
+                        <span class="vetnav-subtext">(Incl. PACT Act Info)</span>
+                        <span class="vetnav-toggle-icon">▼</span>
+                    </button>
+                    <div class="vetnav-collapsible-content" id="vetnav-health-care-content" style="display: none;">
+                        <h4 class="vetnav-content-title">Key Information: VA Health Care</h4>
+                        <ul>
+                            <li><strong>Eligibility Basics:</strong> Generally, active military service and a non-dishonorable discharge are required.</li>
+                            <li><strong>Minimum Duty:</strong> Typically 24 months of continuous service or the full period called to active duty if enlisted after 9/7/80 or entered active duty after 10/16/81. Exceptions apply.</li>
+                            <li><strong>PACT Act Expansion:</strong> If you were exposed to burn pits, Agent Orange, or other toxins, your eligibility may be expanded. This includes many Vietnam, Gulf War, and post-9/11 era veterans.</li>
+                            <li><strong>No Disability Rating Needed:</strong> A service-connected disability is not required to enroll for VA health care.</li>
+                            <li><strong>Enrollment:</strong> VA uses priority groups to manage care access.</li>
+                        </ul>
+                        <p class="vetnav-official-link">For full details and to apply, visit the <a href="https://www.va.gov/health-care/" target="_blank">official VA Health Care page</a>.</p>
+                    </div>
+                </div>
+
+                <div class="vetnav-collapsible">
+                    <button type="button" class="austin-stat vetnav-link vetnav-collapsible-trigger" aria-expanded="false" aria-controls="vetnav-disability-content">
+                        <span class="vetnav-emoji">📝</span>
+                        <span class="vetnav-text">Disability Compensation</span>
+                        <span class="vetnav-subtext">(Service-Connected Conditions)</span>
+                        <span class="vetnav-toggle-icon">▼</span>
+                    </button>
+                    <div class="vetnav-collapsible-content" id="vetnav-disability-content" style="display: none;">
+                        <h4 class="vetnav-content-title">Key Information: Disability Compensation</h4>
+                        <p>Details coming soon. For now, visit the <a href="https://www.va.gov/disability/" target="_blank">official VA Disability page</a>.</p>
+                    </div>
+                </div>
+
+                <div class="vetnav-collapsible">
+                    <button type="button" class="austin-stat vetnav-link vetnav-collapsible-trigger" aria-expanded="false" aria-controls="vetnav-pension-content">
+                        <span class="vetnav-emoji">💰</span>
+                        <span class="vetnav-text">VA Pension Program</span>
+                        <span class="vetnav-subtext">(Wartime Vets, Financial Need)</span>
+                        <span class="vetnav-toggle-icon">▼</span>
+                    </button>
+                    <div class="vetnav-collapsible-content" id="vetnav-pension-content" style="display: none;">
+                        <h4 class="vetnav-content-title">Key Information: VA Pension Program</h4>
+                        <p>Details coming soon. For now, visit the <a href="https://www.va.gov/pension/" target="_blank">official VA Pension page</a>.</p>
+                    </div>
+                </div>
+
+                <div class="vetnav-collapsible">
+                    <button type="button" class="austin-stat vetnav-link vetnav-collapsible-trigger" aria-expanded="false" aria-controls="vetnav-education-content">
+                        <span class="vetnav-emoji">🎓</span>
+                        <span class="vetnav-text">Education & Training</span>
+                        <span class="vetnav-subtext">(e.g., GI Bill)</span>
+                        <span class="vetnav-toggle-icon">▼</span>
+                    </button>
+                    <div class="vetnav-collapsible-content" id="vetnav-education-content" style="display: none;">
+                        <h4 class="vetnav-content-title">Key Information: Education & Training</h4>
+                        <p>Details coming soon. For now, visit the <a href="https://www.va.gov/education/" target="_blank">official VA Education page</a>.</p>
+                    </div>
+                </div>
+
+                <div class="vetnav-collapsible">
+                    <button type="button" class="austin-stat vetnav-link vetnav-collapsible-trigger" aria-expanded="false" aria-controls="vetnav-housing-content">
+                        <span class="vetnav-emoji">🏡</span>
+                        <span class="vetnav-text">Housing Assistance</span>
+                        <span class="vetnav-subtext">(VA Home Loans, Grants)</span>
+                        <span class="vetnav-toggle-icon">▼</span>
+                    </button>
+                    <div class="vetnav-collapsible-content" id="vetnav-housing-content" style="display: none;">
+                        <h4 class="vetnav-content-title">Key Information: Housing Assistance</h4>
+                        <p>Details coming soon. For now, visit the <a href="https://www.va.gov/housing-assistance/" target="_blank">official VA Housing Assistance page</a>.</p>
+                    </div>
+                </div>
 
                 <div class="vetnav-section-divider">Critical Support</div>
                 <a href="https://www.veteranscrisisline.net/" target="_blank" class="austin-stat vetnav-link vetnav-crisis-link">
