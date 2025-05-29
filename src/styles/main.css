@@ -362,3 +362,90 @@ body {
   color: var(--austin-deep-blue);
   margin: 0.25rem 0;
 }
+
+/* VetNav Card Specific Styles */
+.card.vetnav .austin-stat.vetnav-link {
+  display: flex; /* Align emoji and text nicely */
+  align-items: center; /* Vertically center content */
+  text-align: left; /* Align text to the left within the stat block */
+  padding: 0.75rem 1rem; /* Slightly adjust padding for more content */
+  color: white; /* Ensure text is white against card background */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.card.vetnav .vetnav-link .vetnav-emoji {
+  font-size: 1.5rem; /* Make emoji slightly larger */
+  margin-right: 0.75rem;
+  opacity: 0.9;
+}
+
+.card.vetnav .vetnav-link .vetnav-text {
+  font-weight: 600; /* Slightly bolder main text */
+  font-size: 1rem; /* Adjust font size for clarity */
+  flex-grow: 1; /* Allow text to take available space */
+}
+
+.card.vetnav .vetnav-link .vetnav-subtext {
+  font-size: 0.75rem; /* Smaller subtext */
+  opacity: 0.8;
+  margin-top: 0.2rem; /* Space between main text and subtext if wrapped */
+  display: block; /* Ensure it takes its own line if text wraps */
+}
+
+/* VetNav Section Divider Styling */
+.vetnav-section-divider {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7); /* Subtler white for divider text */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.5px;
+}
+
+/* VetNav Crisis Line - Prominent Styling */
+.card.vetnav .vetnav-crisis-link {
+  background: rgba(196, 69, 54, 0.8); /* --austin-bbq-red with some transparency */
+  border: 1px solid var(--austin-bbq-red);
+  box-shadow: 0 0 15px rgba(196, 69, 54, 0.5);
+}
+
+.card.vetnav .vetnav-crisis-link .vetnav-text,
+.card.vetnav .vetnav-crisis-link .vetnav-subtext {
+  color: white; /* Ensure high contrast */
+}
+
+/* VetNav Myth Buster Styling */
+.vetnav-myth-buster {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.15); /* Slightly darker background for contrast */
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.vetnav-myth-buster .myth-title { /* Styles the h4 if it uses this class directly or is a child */
+  /* Uses vetnav-section-divider style by class assignment in HTML */
+  /* If h4 is a child, target with: .vetnav-myth-buster h4 */
+  color: rgba(255, 255, 255, 0.85); /* Brighter title for myth buster */
+  margin-bottom: 0.75rem;
+}
+
+.vetnav-myth-buster .myth-text,
+.vetnav-myth-buster .fact-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.vetnav-myth-buster .myth-text {
+  margin-bottom: 0.5rem;
+}
+
+.vetnav-myth-buster .myth-text strong,
+.vetnav-myth-buster .fact-text strong {
+  font-weight: 700;
+  color: white; /* Make "Myth:" and "Fact:" stand out */
+}
