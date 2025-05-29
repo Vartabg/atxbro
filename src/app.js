@@ -84,6 +84,11 @@ class ATXBROApp {
       }
     };
 
+    // Initialize properties for MythBuster
+    this.myths = [];
+    this.currentMythIndex = 0;
+    this.factRevealed = false;
+
     this.init();
   }
 
@@ -91,7 +96,8 @@ class ATXBROApp {
     this.setupSwipeHandlers();
     this.updateProgressDots();
     this.showGestureHints();
-    this.setupVetNavCollapsibles(); // <-- Added call
+    this.setupVetNavCollapsibles();
+    this.setupInteractiveMythBuster(); // <-- Added call
 
     // Make visitNeighborhood globally accessible
     window.visitNeighborhood = (neighborhoodKey) => {
@@ -105,23 +111,77 @@ class ATXBROApp {
 
     triggers.forEach(trigger => {
       trigger.addEventListener('click', () => {
-        // We use getElementById because aria-controls should have the ID of the content
         const content = document.getElementById(trigger.getAttribute('aria-controls'));
         const icon = trigger.querySelector('.vetnav-toggle-icon');
-        // Check the current state before toggling
         const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
 
         if (isExpanded) {
           content.style.display = 'none';
           trigger.setAttribute('aria-expanded', 'false');
-          if (icon) icon.textContent = '▼'; // Down arrow for collapsed
+          if (icon) icon.textContent = '▼';
         } else {
-          content.style.display = 'block'; // Or 'grid', 'flex' if content needs specific display
+          content.style.display = 'block';
           trigger.setAttribute('aria-expanded', 'true');
-          if (icon) icon.textContent = '▲'; // Up arrow for expanded
+          if (icon) icon.textContent = '▲';
         }
       });
     });
+  }
+
+  // Method to set up Interactive Myth Buster
+  setupInteractiveMythBuster() {
+    this.myths = [
+        {
+            myth: "I make too much money for VA benefits.",
+            fact: "Income doesn't disqualify you from many earned VA benefits like disability compensation or general healthcare enrollment. Eligibility often depends on service history and disability, not just income. Some programs, like Pension, do have income limits."
+        },
+        {
+            myth: "I have been out of the military for too long to be eligible.",
+            fact: "For most core VA benefits like healthcare and disability compensation, there's no 'expiration date' based on how long you've been out of the service."
+        },
+        {
+            myth: "I'm not eligible because I never deployed or was in combat.",
+            fact: "Deployment to a combat zone or direct combat experience is not a requirement for general VA healthcare eligibility or for many other VA benefits. Eligibility is typically rooted in active military service and discharge status."
+        }
+    ];
+    this.currentMythIndex = 0;
+    this.factRevealed = false;
+
+    const mythTextElement = document.getElementById('current-myth-text');
+    const factTextParagraphElement = document.getElementById('current-fact-text');
+    const factContentElement = document.getElementById('current-fact-content');
+    const button = document.getElementById('myth-buster-button');
+
+    if (!mythTextElement || !factTextParagraphElement || !factContentElement || !button) {
+        // console.warn("VetNav MythBuster elements not all found. Feature may not work correctly.");
+        return;
+    }
+
+    const displayMyth = () => {
+        mythTextElement.textContent = this.myths[this.currentMythIndex].myth;
+        factContentElement.textContent = this.myths[this.currentMythIndex].fact;
+        factTextParagraphElement.style.display = 'none';
+        button.textContent = 'Reveal Fact';
+        this.factRevealed = false;
+    };
+
+    button.addEventListener('click', () => {
+        if (!this.factRevealed) {
+            factTextParagraphElement.style.display = 'block';
+            button.textContent = 'Next Myth';
+            this.factRevealed = true;
+        } else {
+            this.currentMythIndex = (this.currentMythIndex + 1) % this.myths.length;
+            displayMyth();
+        }
+    });
+
+    if (this.myths.length > 0) {
+        displayMyth();
+    } else {
+        const mythBusterContainer = document.querySelector('.vetnav-myth-buster');
+        if (mythBusterContainer) mythBusterContainer.style.display = 'none';
+    }
   }
 
   visitNeighborhood(neighborhoodKey) {
@@ -133,25 +193,14 @@ class ATXBROApp {
   }
 
   onNeighborhoodChange(neighborhood) {
-    // Update location display
     document.getElementById('currentLocation').textContent = 
       `${neighborhood.name} - ${neighborhood.vibe}`;
-
-    // Change card colors
     const welcomeCard = document.getElementById('welcomeCard');
     welcomeCard.style.background = 
       `linear-gradient(135deg, ${neighborhood.colors[0]}, ${neighborhood.colors[1]})`;
-
-    // Show location-specific recommendations
     this.showLocationRecommendations(neighborhood);
-
-    // Show discovery notification
     this.showLocationDiscovery(neighborhood);
-
-    // Trigger location emoji
     this.createFloatingEmoji(neighborhood.emoji);
-
-    // Increase weird level
     this.increaseWeirdLevel();
   }
 
@@ -183,66 +232,50 @@ class ATXBROApp {
       text-align: center;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     `;
-
     discovery.innerHTML = `
       <div>📍 Welcome to <span class="math-inline">\{neighborhood\.name\}</div\>
 <div style="font-size: 0.9rem; opacity: 0.9;">{neighborhood.vibe}</div>
+; if (!document.getElementById('location-animations')) { const style = document.createElement('style'); style.id = 'location-animations'; style.textContent = \
+@keyframes slideInOut {
+0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
 `;
-
-    // Add animation if not exists
-    if (!document.getElementById('location-animations')) {
-      const style = document.createElement('style');
-      style.id = 'location-animations';
-      style.textContent = \`
-        @keyframes slideInOut {
-          0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-          20% { opacity: 1; transform: translateX(-50%) translateY(0); }
-          80% { opacity: 1; transform: translateX(-50%) translateY(0); }
-          100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-        }
-      \`;
-      document.head.appendChild(style);
-    }
-    
-    document.body.appendChild(discovery);
-    setTimeout(() => discovery.remove(), 4000);
-  }
+document.head.appendChild(style);
+}
+document.body.appendChild(discovery);
+setTimeout(() => discovery.remove(), 4000);
+}
 
   setupSwipeHandlers() {
     let startX = 0;
     let startY = 0;
     let isDragging = false;
-
     this.cardContainer.addEventListener('touchstart', (e) => {
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
       isDragging = true;
     });
-
     this.cardContainer.addEventListener('touchmove', (e) => {
       if (!isDragging) return;
       const currentX = e.touches[0].clientX;
       const diffX = currentX - startX;
-      
       const currentTranslate = -this.currentCard * 100;
       const dragTranslate = (diffX / window.innerWidth) * 100;
       this.cardContainer.style.transform = \`translateX(\${currentTranslate + dragTranslate}vw)\`;
     });
-
     this.cardContainer.addEventListener('touchend', (e) => {
       if (!isDragging) return;
       isDragging = false;
-      
       const endX = e.changedTouches[0].clientX;
       const endY = e.changedTouches[0].clientY;
       const diffX = endX - startX;
       const diffY = endY - startY;
       const threshold = 50;
-
       if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > threshold) {
-        if (diffY < 0) { // Swipe up
-          this.triggerSwipeUpEasterEgg();
-        }
+        if (diffY < 0) { this.triggerSwipeUpEasterEgg(); }
       } else if (Math.abs(diffX) > threshold) {
         if (diffX > 0 && this.currentCard > 0) {
           this.currentCard--;
@@ -250,11 +283,9 @@ class ATXBROApp {
           this.currentCard++;
         }
       }
-
       this.updateCardPosition();
       this.updateProgressDots();
     });
-
     this.progressDots.forEach((dot, index) => {
       dot.addEventListener('click', () => {
         this.currentCard = index;
@@ -285,10 +316,9 @@ class ATXBROApp {
       left: \<span class="math-inline">\{Math\.random\(\) \* 80 \+ 10\}%;
 top: \{Math.random() * 60 + 20}%;
 `;
-
-    document.getElementById('easterEggs').appendChild(eggElement);
-    setTimeout(() => eggElement.remove(), 3000);
-  }
+document.getElementById('easterEggs').appendChild(eggElement);
+setTimeout(() => eggElement.remove(), 3000);
+}
 
   increaseWeirdLevel() {
     if (this.weirdLevel < 5) {

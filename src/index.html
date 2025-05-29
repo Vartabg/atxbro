@@ -228,9 +228,12 @@
                 </a>
 
                 <div class="vetnav-myth-buster">
-                    <h4 class="vetnav-section-divider myth-title">Myth vs. Fact</h4>
-                    <p class="myth-text"><strong>Myth:</strong> I make too much money for VA benefits.</p>
-                    <p class="fact-text"><strong>Fact:</strong> Income doesn't disqualify you from many earned VA benefits like disability compensation or general healthcare enrollment. Eligibility often depends on service history and disability, not just income. Some programs, like Pension, do have income limits.</p>
+                    <h4 class="vetnav-section-divider myth-title">VetBenefit MythBuster</h4>
+                    <div id="myth-display-area">
+                        <p class="myth-text"><strong>Myth:</strong> <span id="current-myth-text"></span></p>
+                        <p class="fact-text" id="current-fact-text" style="display:none;"><strong>Fact:</strong> <span id="current-fact-content"></span></p>
+                    </div>
+                    <button type="button" id="myth-buster-button" class="vetnav-interaction-button">Reveal Fact</button>
                 </div>
             </div>
         </div>
