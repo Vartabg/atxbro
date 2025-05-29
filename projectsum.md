@@ -7,3 +7,10 @@
 * **Next Steps**: Add specific styling for `vetnav-link` items if needed, populate placeholder links with official VA URLs, add Critical Support Links and Local Resource sections to the VetNav card.
 
 ---
+**VetNav Module - Phase 1: Benefit Category URLs Updated**
+
+* **Date**: 2025-05-29
+* **Change**: Updated the `href` attributes for the five main benefit category links within the VetNav card in `src/index.html` to point to their respective official VA.gov landing pages. Links are configured to open in a new tab.
+* **Purpose**: This enhancement makes the VetNav card more directly useful by providing actual navigation to authoritative benefit information, progressing Phase 1 of the module.
+* **Files Affected**: `src/index.html`
+* **Next Steps**: Add "Critical Support Links" and "Local Resource sections" to the VetNav card as per Phase 1 plan. Consider any necessary CSS for `vetnav-link` and its child span elements.
