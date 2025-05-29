@@ -80,3 +80,10 @@
 * **Purpose**: To provide specific, focused information on the PACT Act, a critical and recent development affecting many veterans.
 * **Files Affected**: `src/index.html`
 * **Next Steps**: Implement the "Discharge Information" section as per Phase 2 plan. Then, proceed to the interactive myth buster and static document checklists.
+**VetNav Module - Phase 2: Discharge Information Section Added**
+
+* **Date**: 2025-05-29
+* **Change**: Added a new collapsible section titled "Understanding Your Discharge" to `src/index.html` within the VetNav card. This section provides information on how discharge status affects VA benefits and options for OTH discharges, based on `vetnavDeepResearch3.txt`.
+* **Purpose**: To address a critical area of concern for some veterans and provide guidance on navigating benefit eligibility with various discharge types.
+* **Files Affected**: `src/index.html`
+* **Next Steps**: Implement the interactive myth buster and static document checklists as per the Phase 2 plan.
