@@ -1,5 +1,4 @@
-// ATXBRO Austin Location-Aware Experience
-class ATXBROApp {
+﻿class ATXBROApp {
   constructor() {
     this.currentCard = 0;
     this.totalCards = 6;
@@ -8,78 +7,78 @@ class ATXBROApp {
     this.weirdLevel = 3;
     this.easterEggCount = 0;
     this.currentNeighborhood = null;
-
+    
     this.austinNeighborhoods = {
       downtown: {
         name: "Downtown",
         vibe: "urban core",
         colors: ["#4A90A4", "#2C5F70"],
-        emoji: "🏛️",
+        emoji: "ðŸ›ï¸",
         recommendations: [
-          "🏛️ Texas State Capitol tours",
-          "🚶‍♀️ Lady Bird Lake hike & bike trail",
-          "🌮 Congress Avenue food trucks",
-          "🦇 Congress Bridge bats at sunset"
+          "ðŸ›ï¸ Texas State Capitol tours",
+          "ðŸš¶â€â™€ï¸ Lady Bird Lake hike & bike trail",
+          "ðŸŒ® Congress Avenue food trucks",
+          "ðŸ¦‡ Congress Bridge bats at sunset"
         ]
       },
       sixthst: {
         name: "6th Street",
         vibe: "party district",
         colors: ["#FF6B9D", "#8B5A96"],
-        emoji: "🎸",
+        emoji: "ðŸŽ¸",
         recommendations: [
-          "🎵 Live music at historic venues",
-          "🍺 Craft cocktails at rooftop bars",
-          "🌮 Late night taco trucks",
-          "📸 Neon sign photo ops"
+          "ðŸŽµ Live music at historic venues",
+          "ðŸº Craft cocktails at rooftop bars",
+          "ðŸŒ® Late night taco trucks",
+          "ðŸ“¸ Neon sign photo ops"
         ]
       },
       soco: {
         name: "South Congress",
         vibe: "keep it weird",
         colors: ["#E8A87C", "#C44536"],
-        emoji: "🛍️",
+        emoji: "ðŸ›ï¸",
         recommendations: [
-          "👢 Allen's Boots - iconic cowboy gear",
-          "🛍️ Vintage shopping and boutiques",
-          "🌮 Food trailers at SoCo",
-          "📷 'I love you so much' mural"
+          "ðŸ‘¢ Allen's Boots - iconic cowboy gear",
+          "ðŸ›ï¸ Vintage shopping and boutiques",
+          "ðŸŒ® Food trailers at SoCo",
+          "ðŸ“· 'I love you so much' mural"
         ]
       },
       east: {
         name: "East Austin",
         vibe: "artsy & hip",
         colors: ["#7BA05B", "#39FF14"],
-        emoji: "🎨",
+        emoji: "ðŸŽ¨",
         recommendations: [
-          "🎨 Street art and mural tours",
-          "🍺 Craft brewery hopping",
-          "🚚 Food truck park adventures",
-          "🎪 Unique vintage finds"
+          "ðŸŽ¨ Street art and mural tours",
+          "ðŸº Craft brewery hopping",
+          "ðŸšš Food truck park adventures",
+          "ðŸŽª Unique vintage finds"
         ]
       },
       rainey: {
         name: "Rainey Street",
         vibe: "bungalow bars",
         colors: ["#8B5A96", "#FF6B9D"],
-        emoji: "🍻",
+        emoji: "ðŸ»",
         recommendations: [
-          "🏠 Historic bungalow bars",
-          "🍹 Container bar experiences",
-          "🌅 Rooftop patios with skyline views",
-          "🎵 Live music in intimate venues"
+          "ðŸ  Historic bungalow bars",
+          "ðŸ¹ Container bar experiences",
+          "ðŸŒ… Rooftop patios with skyline views",
+          "ðŸŽµ Live music in intimate venues"
         ]
       },
       zilker: {
         name: "Zilker",
         vibe: "outdoorsy",
         colors: ["#7BA05B", "#4A90A4"],
-        emoji: "🌳",
+        emoji: "ðŸŒ³",
         recommendations: [
-          "🏊‍♀️ Barton Springs Pool year-round",
-          "⛳ Disc golf at Zilker Park",
-          "🎪 Austin City Limits festival grounds",
-          "🧘‍♀️ Yoga on the great lawn"
+          "ðŸŠâ€â™€ï¸ Barton Springs Pool year-round",
+          "â›³ Disc golf at Zilker Park",
+          "ðŸŽª Austin City Limits festival grounds",
+          "ðŸ§˜â€â™€ï¸ Yoga on the great lawn"
         ]
       }
     };
@@ -96,9 +95,9 @@ class ATXBROApp {
     this.setupSwipeHandlers();
     this.updateProgressDots();
     this.showGestureHints();
-    this.setupVetNavCollapsibles();
-    this.setupInteractiveMythBuster(); // <-- Added call
-
+    this.setupVetNavCollapsibles(); 
+    this.setupInteractiveMythBuster(); 
+    
     // Make visitNeighborhood globally accessible
     window.visitNeighborhood = (neighborhoodKey) => {
       this.visitNeighborhood(neighborhoodKey);
@@ -118,11 +117,11 @@ class ATXBROApp {
         if (isExpanded) {
           content.style.display = 'none';
           trigger.setAttribute('aria-expanded', 'false');
-          if (icon) icon.textContent = '▼';
+          if (icon) icon.textContent = 'â–¼';
         } else {
           content.style.display = 'block';
           trigger.setAttribute('aria-expanded', 'true');
-          if (icon) icon.textContent = '▲';
+          if (icon) icon.textContent = 'â–²';
         }
       });
     });
@@ -233,21 +232,25 @@ class ATXBROApp {
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     `;
     discovery.innerHTML = `
-      <div>📍 Welcome to <span class="math-inline">\{neighborhood\.name\}</div\>
-<div style="font-size: 0.9rem; opacity: 0.9;">{neighborhood.vibe}</div>
-; if (!document.getElementById('location-animations')) { const style = document.createElement('style'); style.id = 'location-animations'; style.textContent = \
-@keyframes slideInOut {
-0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-20% { opacity: 1; transform: translateX(-50%) translateY(0); }
-80% { opacity: 1; transform: translateX(-50%) translateY(0); }
-100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-}
-`;
-document.head.appendChild(style);
-}
-document.body.appendChild(discovery);
-setTimeout(() => discovery.remove(), 4000);
-}
+      <div>ðŸ“ Welcome to ${neighborhood.name}</div>
+      <div style="font-size: 0.9rem; opacity: 0.9;">${neighborhood.vibe}</div>
+    `;
+    if (!document.getElementById('location-animations')) {
+      const style = document.createElement('style');
+      style.id = 'location-animations';
+      style.textContent = `
+        @keyframes slideInOut {
+          0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+          20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+          80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+          100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+    document.body.appendChild(discovery);
+    setTimeout(() => discovery.remove(), 4000);
+  }
 
   setupSwipeHandlers() {
     let startX = 0;
@@ -264,7 +267,7 @@ setTimeout(() => discovery.remove(), 4000);
       const diffX = currentX - startX;
       const currentTranslate = -this.currentCard * 100;
       const dragTranslate = (diffX / window.innerWidth) * 100;
-      this.cardContainer.style.transform = \`translateX(\${currentTranslate + dragTranslate}vw)\`;
+      this.cardContainer.style.transform = `translateX(\${currentTranslate + dragTranslate}vw)`;
     });
     this.cardContainer.addEventListener('touchend', (e) => {
       if (!isDragging) return;
@@ -296,7 +299,7 @@ setTimeout(() => discovery.remove(), 4000);
   }
 
   triggerSwipeUpEasterEgg() {
-    const austinEmojis = ['🤠', '🌮', '🎸', '🦇', '🛸', '🎪', '👽', '🌵', '🔥', '⚡'];
+    const austinEmojis = ['ðŸ¤ ', 'ðŸŒ®', 'ðŸŽ¸', 'ðŸ¦‡', 'ðŸ›¸', 'ðŸŽª', 'ðŸ‘½', 'ðŸŒµ', 'ðŸ”¥', 'âš¡'];
     const randomEmoji = austinEmojis[Math.floor(Math.random() * austinEmojis.length)];
     this.createFloatingEmoji(randomEmoji);
     this.increaseWeirdLevel();
@@ -307,18 +310,18 @@ setTimeout(() => discovery.remove(), 4000);
     const eggElement = document.createElement('div');
     eggElement.className = 'easter-egg';
     eggElement.textContent = emoji;
-    eggElement.style.cssText = \`
+    eggElement.style.cssText = `
       position: fixed;
       font-size: 2rem;
       animation: easterEggFloat 3s ease-out forwards;
       pointer-events: none;
       z-index: 9999;
-      left: \<span class="math-inline">\{Math\.random\(\) \* 80 \+ 10\}%;
-top: \{Math.random() * 60 + 20}%;
-`;
-document.getElementById('easterEggs').appendChild(eggElement);
-setTimeout(() => eggElement.remove(), 3000);
-}
+      left: \${Math.random() * 80 + 10}%;
+      top: \${Math.random() * 60 + 20}%;
+    `;
+    document.getElementById('easterEggs').appendChild(eggElement);
+    setTimeout(() => eggElement.remove(), 3000);
+  }
 
   increaseWeirdLevel() {
     if (this.weirdLevel < 5) {
@@ -336,7 +339,7 @@ setTimeout(() => eggElement.remove(), 3000);
 
   updateCardPosition() {
     const translateX = -this.currentCard * 100;
-    this.cardContainer.style.transform = \`translateX(\${translateX}vw)\`;
+    this.cardContainer.style.transform = `translateX(\${translateX}vw)`;
   }
 
   updateProgressDots() {
@@ -356,3 +359,4 @@ setTimeout(() => eggElement.remove(), 3000);
 document.addEventListener('DOMContentLoaded', () => {
   new ATXBROApp();
 });
+EOF

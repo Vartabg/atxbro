@@ -94,7 +94,6 @@ body {
   transform: scale(1.3);
 }
 
-/* FIXED: Card container with proper overflow and width */
 .card-container {
   position: absolute;
   top: 60px;
@@ -102,20 +101,19 @@ body {
   width: 600vw; /* 6 cards × 100vw each */
   height: calc(100vh - 120px);
   display: flex;
-  overflow: hidden; /* FIXED: Hide overflow */
+  overflow: hidden; 
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform;
 }
 
-/* FIXED: Each card takes exactly 100vw */
 .card {
-  width: 100vw; /* FIXED: Exact viewport width */
+  width: 100vw; 
   height: 100%;
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   position: relative;
-  flex-shrink: 0; /* FIXED: Prevent shrinking */
+  flex-shrink: 0; 
   overflow-y: auto;
   scroll-behavior: smooth;
 }
@@ -253,7 +251,6 @@ body {
   }
 }
 
-/* Location Simulator */
 .location-simulator {
   position: fixed;
   top: 120px;
@@ -298,7 +295,6 @@ body {
   transform: scale(0.98);
 }
 
-/* Austin Stats */
 .austin-stat {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
@@ -317,7 +313,6 @@ body {
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* Location-specific content */
 .location-content {
   margin-top: 2rem;
   padding: 1.5rem;
@@ -340,56 +335,33 @@ body {
   font-size: 0.9rem;
 }
 
-/* Gesture hints */
-.gesture-hints {
-  position: fixed;
-  bottom: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 999;
-  opacity: 0.7;
-  animation: fadeInOut 4s infinite;
-  text-align: center;
-}
-
-@keyframes fadeInOut {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.8; }
-}
-
-.hint {
-  font-size: 0.8rem;
-  color: var(--austin-deep-blue);
-  margin: 0.25rem 0;
-}
-
 /* VetNav Card Specific Styles */
 .card.vetnav .austin-stat.vetnav-link {
-  display: flex; /* Align emoji and text nicely */
-  align-items: center; /* Vertically center content */
-  text-align: left; /* Align text to the left within the stat block */
-  padding: 0.75rem 1rem; /* Slightly adjust padding for more content */
-  color: white; /* Ensure text is white against card background */
-  text-decoration: none; /* Remove underline from links */
+  display: flex; 
+  align-items: center; 
+  text-align: left; 
+  padding: 0.75rem 1rem; 
+  color: white; 
+  text-decoration: none; 
 }
 
 .card.vetnav .vetnav-link .vetnav-emoji {
-  font-size: 1.5rem; /* Make emoji slightly larger */
+  font-size: 1.5rem; 
   margin-right: 0.75rem;
   opacity: 0.9;
 }
 
 .card.vetnav .vetnav-link .vetnav-text {
-  font-weight: 600; /* Slightly bolder main text */
-  font-size: 1rem; /* Adjust font size for clarity */
-  flex-grow: 1; /* Allow text to take available space */
+  font-weight: 600; 
+  font-size: 1rem; 
+  flex-grow: 1; 
 }
 
 .card.vetnav .vetnav-link .vetnav-subtext {
-  font-size: 0.75rem; /* Smaller subtext */
+  font-size: 0.75rem; 
   opacity: 0.8;
-  margin-top: 0.2rem; /* Space between main text and subtext if wrapped */
-  display: block; /* Ensure it takes its own line if text wraps */
+  margin-top: 0.2rem; 
+  display: block; 
 }
 
 /* VetNav Section Divider Styling */
@@ -400,36 +372,34 @@ body {
   font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7); /* Subtler white for divider text */
+  color: rgba(255, 255, 255, 0.7); 
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   letter-spacing: 0.5px;
 }
 
 /* VetNav Crisis Line - Prominent Styling */
 .card.vetnav .vetnav-crisis-link {
-  background: rgba(196, 69, 54, 0.8); /* --austin-bbq-red with some transparency */
+  background: rgba(196, 69, 54, 0.8); 
   border: 1px solid var(--austin-bbq-red);
   box-shadow: 0 0 15px rgba(196, 69, 54, 0.5);
 }
 
 .card.vetnav .vetnav-crisis-link .vetnav-text,
 .card.vetnav .vetnav-crisis-link .vetnav-subtext {
-  color: white; /* Ensure high contrast */
+  color: white; 
 }
 
 /* VetNav Myth Buster Styling */
 .vetnav-myth-buster {
   margin-top: 1.5rem;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.15); /* Slightly darker background for contrast */
+  background: rgba(0, 0, 0, 0.15); 
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.vetnav-myth-buster .myth-title { /* Styles the h4 if it uses this class directly or is a child */
-  /* Uses vetnav-section-divider style by class assignment in HTML */
-  /* If h4 is a child, target with: .vetnav-myth-buster h4 */
-  color: rgba(255, 255, 255, 0.85); /* Brighter title for myth buster */
+.vetnav-myth-buster .myth-title { 
+  color: rgba(255, 255, 255, 0.85); 
   margin-bottom: 0.75rem;
 }
 
@@ -447,58 +417,48 @@ body {
 .vetnav-myth-buster .myth-text strong,
 .vetnav-myth-buster .fact-text strong {
   font-weight: 700;
-  color: white; /* Make "Myth:" and "Fact:" stand out */
+  color: white; 
 }
 
 /* VetNav Collapsible Section Styles */
 .vetnav-collapsible {
-  margin-bottom: 0.5rem; /* Space between collapsible items */
+  margin-bottom: 0.5rem; 
 }
 
 .vetnav-collapsible-trigger.austin-stat {
-  width: 100%; /* Make button full width of its container */
+  width: 100%; 
   cursor: pointer;
-  display: flex; /* To align icon properly */
+  display: flex; 
   align-items: center;
-  justify-content: space-between; /* Pushes icon to the right */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Ensure border is consistent */
-  background: rgba(255, 255, 255, 0.2); /* Default from austin-stat */
-  color: white; /* Default from austin-stat */
-  padding: 0.75rem 1rem; /* Default from vetnav-link */
-  border-radius: 15px; /* Default from austin-stat */
+  justify-content: space-between; 
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  background: rgba(255, 255, 255, 0.2); 
+  color: white; 
+  padding: 0.75rem 1rem; 
+  border-radius: 15px; 
 }
 
 .vetnav-collapsible-trigger:hover {
-  background: rgba(255, 255, 255, 0.25); /* Slight hover effect */
-}
-
-.vetnav-collapsible-trigger .vetnav-text-group { /* Optional: if you want to group emoji, text, subtext */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  background: rgba(255, 255, 255, 0.25); 
 }
 
 .vetnav-toggle-icon {
   font-size: 1.2rem;
   font-weight: bold;
-  margin-left: 0.75rem; /* Space icon from text */
+  margin-left: 0.75rem; 
   transition: transform 0.2s ease-in-out;
 }
 
-.vetnav-collapsible-trigger[aria-expanded="true"] .vetnav-toggle-icon {
-  /* transform: rotate(180deg);  Alternative for icon change */
-}
-
 .vetnav-collapsible-content {
-  background: rgba(0, 0, 0, 0.2); /* Slightly different background for content */
+  background: rgba(0, 0, 0, 0.2); 
   padding: 1rem;
-  margin-top: -10px; /* Overlap slightly with rounded corners of button */
+  margin-top: -10px; 
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-top: none; /* Avoid double border with button */
+  border-top: none; 
   color: rgba(255, 255, 255, 0.9);
-  overflow: hidden; /* Ensure content respects padding */
+  overflow: hidden; 
 }
 
 .vetnav-collapsible-content h4.vetnav-content-title {
@@ -512,9 +472,9 @@ body {
 }
 
 .vetnav-collapsible-content ul {
-  list-style-type: disc; /* Or 'circle' or custom */
+  list-style-type: disc; 
   list-style-position: outside;
-  padding-left: 1.2rem; /* Indent list items */
+  padding-left: 1.2rem; 
   margin: 0 0 1rem 0;
 }
 
@@ -536,7 +496,7 @@ body {
 }
 
 .vetnav-collapsible-content p.vetnav-official-link a {
-  color: var(--austin-neon-green); /* Use a vibrant theme color for the link */
+  color: var(--austin-neon-green); 
   text-decoration: underline;
   font-weight: 500;
 }
@@ -577,20 +537,21 @@ body {
 
 /* Adjustments for myth/fact text presentation */
 .vetnav-myth-buster #myth-display-area .myth-text {
-  margin-bottom: 0.75rem; /* Space before fact is revealed */
+  margin-bottom: 0.75rem; 
   font-size: 0.9em;
   line-height: 1.4;
 }
 
 .vetnav-myth-buster #myth-display-area .fact-text {
   margin-top: 0.5rem;
-  padding: 0.75rem; /* Increased padding */
-  background-color: rgba(255,255,255,0.05); /* More subtle background */
+  padding: 0.75rem; 
+  background-color: rgba(255,255,255,0.05); 
   border-radius: 4px;
-  border-left: 3px solid var(--austin-blue); /* Accent border */
-  font-size: 0.85em; /* Slightly smaller fact text */
+  border-left: 3px solid var(--austin-blue); 
+  font-size: 0.85em; 
   line-height: 1.5;
 }
 .vetnav-myth-buster #myth-display-area .fact-text strong {
-    color: white; /* Ensure "Fact:" is white and bold */
+    color: white; 
 }
+EOF

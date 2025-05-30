@@ -14,6 +14,8 @@
 * **Purpose**: This enhancement makes the VetNav card more directly useful by providing actual navigation to authoritative benefit information, progressing Phase 1 of the module.
 * **Files Affected**: `src/index.html`
 * **Next Steps**: Add "Critical Support Links" and "Local Resource sections" to the VetNav card as per Phase 1 plan. Consider any necessary CSS for `vetnav-link` and its child span elements.
+
+---
 **VetNav Module - Phase 1: Critical Support & Local Links Added**
 
 * **Date**: 2025-05-29
@@ -21,6 +23,8 @@
 * **Purpose**: This completes a major part of the VetNav Phase 1 content by providing essential actionable links for veterans, directly addressing ease of access to support and information as highlighted in `vetnavDeepResearch3.txt`.
 * **Files Affected**: `src/index.html`
 * **Next Steps**: Add the 'Myth Debunking Snippet' to the VetNav card. Address any necessary CSS styling for new elements (dividers, crisis link, general vetnav-link appearance).
+
+---
 **VetNav Module - Phase 1: Myth Debunking Snippet Added**
 
 * **Date**: 2025-05-29
@@ -28,6 +32,8 @@
 * **Purpose**: This addition aims to proactively correct common misinformation, a key recommendation from `vetnavDeepResearch3.txt`, enhancing the card's utility. This completes the core content elements for VetNav Phase 1.
 * **Files Affected**: `src/index.html`
 * **Next Steps**: Address CSS styling for all new VetNav elements to ensure visual consistency, readability, and appropriate emphasis (e.g., section dividers, crisis link, myth buster).
+
+---
 **VetNav Module - Phase 1: CSS Styling Applied**
 
 * **Date**: 2025-05-29
@@ -35,6 +41,8 @@
 * **Purpose**: To ensure the VetNav card content is visually consistent with the ATXBRO design, is readable, and gives proper emphasis to critical information. This completes the initial presentation layer for Phase 1 content.
 * **Files Affected**: `src/styles/main.css`
 * **Next Steps**: Review Phase 1 implementation. Begin planning for Phase 2: Enhanced Information & Basic Interactivity for VetNav.
+
+---
 **VetNav Module - Phase 2: Collapsible Benefit Details Initiated**
 
 * **Date**: 2025-05-29
@@ -45,6 +53,8 @@
 * **Purpose**: To begin Phase 2 of VetNav development by adding depth to benefit information in a user-friendly, manageable way. This addresses the need to provide comprehensive details without overwhelming the user, as suggested by `vetnavDeepResearch3.txt`.
 * **Files Affected**: `src/index.html`, `src/app.js`, `src/styles/main.css`
 * **Next Steps**: Populate detailed content for the remaining collapsible benefit categories (Disability Compensation, Pension, Education, Housing Assistance).
+
+---
 **VetNav Module - Phase 2: Disability Compensation Content Added**
 
 * **Date**: 2025-05-29
@@ -52,6 +62,8 @@
 * **Purpose**: To provide users with key details about VA Disability Compensation within the VetNav card, improving the depth of information available for this crucial benefit.
 * **Files Affected**: `src/index.html`
 * **Next Steps**: Populate detailed content for the remaining collapsible benefit categories (VA Pension Program, Education & Training, Housing Assistance).
+
+---
 **VetNav Module - Phase 2: VA Pension Program Content Added**
 
 * **Date**: 2025-05-29
@@ -59,6 +71,8 @@
 * **Purpose**: To provide users with key details about the VA Pension Program within the VetNav card, improving the depth of information available for this benefit.
 * **Files Affected**: `src/index.html`
 * **Next Steps**: Populate detailed content for the remaining collapsible benefit categories (Education & Training, Housing Assistance).
+
+---
 **VetNav Module - Phase 2: Education & Training Content Added**
 
 * **Date**: 2025-05-29
@@ -66,6 +80,8 @@
 * **Purpose**: To provide users with key details about VA Education & Training benefits within the VetNav card.
 * **Files Affected**: `src/index.html`
 * **Next Steps**: Populate detailed content for the final collapsible benefit category (Housing Assistance).
+
+---
 **VetNav Module - Phase 2: Housing Assistance Content Added**
 
 * **Date**: 2025-05-29
@@ -73,6 +89,8 @@
 * **Purpose**: To provide users with key details about VA Housing Assistance benefits within the VetNav card. This completes the detailed content population for all five main benefit categories in the collapsible sections.
 * **Files Affected**: `src/index.html`
 * **Next Steps**: Implement the "PACT Act Deep Dive" and "Discharge Information" sections as per Phase 2 plan. Then, proceed to the interactive myth buster and static document checklists.
+
+---
 **VetNav Module - Phase 2: PACT Act Deep Dive Section Added**
 
 * **Date**: 2025-05-29
@@ -80,6 +98,8 @@
 * **Purpose**: To provide specific, focused information on the PACT Act, a critical and recent development affecting many veterans.
 * **Files Affected**: `src/index.html`
 * **Next Steps**: Implement the "Discharge Information" section as per Phase 2 plan. Then, proceed to the interactive myth buster and static document checklists.
+
+---
 **VetNav Module - Phase 2: Discharge Information Section Added**
 
 * **Date**: 2025-05-29
@@ -87,6 +107,8 @@
 * **Purpose**: To address a critical area of concern for some veterans and provide guidance on navigating benefit eligibility with various discharge types.
 * **Files Affected**: `src/index.html`
 * **Next Steps**: Implement the interactive myth buster and static document checklists as per the Phase 2 plan.
+
+---
 **VetNav Module - Phase 2: Interactive Myth Buster Implemented**
 
 * **Date**: 2025-05-29
@@ -97,3 +119,13 @@
 * **Purpose**: To make the myth debunking feature more engaging and allow users to explore multiple common misconceptions about VA benefits, addressing a key aspect of Phase 2.
 * **Files Affected**: `src/index.html`, `src/app.js`, `src/styles/main.css`
 * **Next Steps**: Implement static document checklists for common claims as per the Phase 2 plan.
+
+
+**VetNav Module - Phase 2: Static Document Checklist Added**
+
+* **Date**: 2025-05-30
+* **Change**: Added a new collapsible section "Claim Document Checklists" to `src/index.html` within the VetNav card. This section includes an initial checklist for a Disability Compensation Fully Developed Claim (FDC), based on `vetnavDeepResearch3.txt`.
+* **Purpose**: To provide veterans with a practical, static checklist to help them prepare documentation for common claims, aiming to reduce errors and improve application completeness.
+* **Files Affected**: `src/index.html`
+* **Next Steps**: This completes the planned features for Phase 2. Review Phase 2 implementation. Begin planning for Phase 3: Basic Tools & Guided Assistance (Simplified for Vanilla JS) for VetNav, starting with a simplified eligibility 'self-checker'.
+

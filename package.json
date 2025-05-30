@@ -1,33 +1,39 @@
-{
-  "name": "atxbro",
-  "version": "1.0.0",
-  "description": "ATXBRO - Austin Experience Platform for visitors and locals",
-  "main": "src/app.js",
-  "directories": {
-    "doc": "docs",
-    "test": "tests"
-  },
-  "scripts": {
-    "start": "python3 -m http.server 8000 --directory src",
-    "dev": "python3 -m http.server 8000 --directory src",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "echo \"Build process not implemented yet\"",
-    "lint": "echo \"Linting not implemented yet\""
-  },
-  "keywords": [
-    "austin",
-    "texas",
-    "travel",
-    "guide",
-    "veterans",
-    "pets",
-    "news",
-    "local"
-  ],
-  "author": "ATXBRO",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "."
-  }
+﻿{
+    "name":  "atxbro",
+    "version":  "1.0.0",
+    "description":  "ATXBRO - Austin Experience Platform for visitors and locals",
+    "main":  "src/app.js",
+    "directories":  {
+                        "doc":  "docs",
+                        "test":  "tests"
+                    },
+    "scripts":  {
+                    "start":  "python3 -m http.server 8000 --directory src",
+                    "dev":  "vite",
+                    "test":  "echo \"Error: no test specified\" \u0026\u0026 exit 1",
+                    "build":  "vite build",
+                    "lint":  "echo \"Linting not implemented yet\"",
+                    "preview":  "vite preview"
+                },
+    "keywords":  [
+                     "austin",
+                     "texas",
+                     "travel",
+                     "guide",
+                     "veterans",
+                     "pets",
+                     "news",
+                     "local"
+                 ],
+    "author":  "ATXBRO",
+    "license":  "MIT",
+    "repository":  {
+                       "type":  "git",
+                       "url":  "."
+                   },
+    "devDependencies":  {
+                            "@types/node":  "^22.15.28",
+                            "typescript":  "^5.8.3",
+                            "vite":  "^6.3.5"
+                        }
 }
